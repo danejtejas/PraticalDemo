@@ -6,14 +6,28 @@
 //
 
 import UIKit
+import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
+    var window: UIWindow?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        FirebaseApp.configure()
+        
+        if let userIsLogin = UserDefaults.standard.value(forKey: "userIsLogin") as? Bool    , userIsLogin == true  {
+            
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let homeVC = storyBoard.instantiateViewController(withIdentifier: Global.StoryborderId.homeVC) as! HomeVC
+            
+            window?.rootViewController = UINavigationController(rootViewController: homeVC)
+            window?.makeKeyAndVisible()
+        }
+        
+        
         return true
     }
 

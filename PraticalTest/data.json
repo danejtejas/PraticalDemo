@@ -1,0 +1,145 @@
+{
+  "data" : [{
+      "poolName" : "A",
+      "teams" : [{
+            "rank" : 1,
+            "name" : "MB Suref 14's asses",
+            "matches" : {
+              "w" : 10,
+              "l" : 4,
+              "mr" : 10.4
+            },
+            
+            "total" : {
+              "w" : 10,
+              "ps" : 49.5,
+              "pa" :10,
+              "pr" : 15
+            }
+      },
+      
+      {
+            "rank" : 2,
+            "name" : "Team Rockestar",
+            "matches" : {
+              "w" : 10,
+              "l" : 4,
+              "mr" : 10.4
+            },
+            
+            "total" : {
+              "w" : 10,
+              "ps" : 49.5,
+              "pa" :10,
+              "pr" : 15
+            }
+      },
+      {
+            "rank" : 3,
+            "name" : "9419 black",
+            "matches" : {
+              "w" : 10,
+              "l" : 4,
+              "mr" : 10.4
+            },
+            
+            "total" : {
+              "w" : 10,
+              "ps" : 49.5,
+              "pa" :10,
+              "pr" : 15
+            }
+      },
+      {
+            "rank" : 4,
+            "name" : "Wave 14 skkyper",
+            "matches" : {
+              "w" : 10,
+              "l" : 4,
+              "mr" : 10.4
+            },
+            
+            "total" : {
+              "w" : 10,
+              "ps" : 49.5,
+              "pa" :10,
+              "pr" : 15
+            }
+      }
+      
+      ]
+  },
+  {
+      "poolName" : "B",
+      "teams" : [{
+            "rank" : 1,
+            "name" : "Baboula Bay Blue",
+            "matches" : {
+              "w" : 10,
+              "l" : 4,
+              "mr" : 10.4
+            },
+            
+            "total" : {
+              "w" : 10,
+              "ps" : 49.5,
+              "pa" :10,
+              "pr" : 15
+            }
+      },
+      
+      {
+            "rank" : 2,
+            "name" : "Pinvavle 154",
+            "matches" : {
+              "w" : 10,
+              "l" : 4,
+              "mr" : 10.4
+            },
+            
+            "total" : {
+              "w" : 10,
+              "ps" : 49.5,
+              "pa" :10,
+              "pr" : 15
+            }
+      },
+      {
+            "rank" : 3,
+            "name" : "cost 141",
+            "matches" : {
+              "w" : 10,
+              "l" : 4,
+              "mr" : 10.4
+            },
+            
+            "total" : {
+              "w" : 10,
+              "ps" : 49.5,
+              "pa" :10,
+              "pr" : 15
+            }
+      },
+      {
+            "rank" : 4,
+            "name" : "Tream Rokcer",
+            "matches" : {
+              "w" : 10,
+              "l" : 4,
+              "mr" : 10.4
+            },
+            
+            "total" : {
+              "w" : 10,
+              "ps" : 49.5,
+              "pa" :10,
+              "pr" : 15
+            }
+      }
+      
+      ]
+  }
+  
+  
+  ]
+}
