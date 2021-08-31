@@ -30,7 +30,6 @@ class RegistrationVC: UIViewController {
         MBProgressHUD.showAdded(to: self.view, animated: true)
        
         DatabaseHelper.shared.addUser(user: user) { [weak self] (isSuccess, error) in
-            
             DispatchQueue.main.async {
                 MBProgressHUD.hide(for: (self?.view)!, animated: true)
                 if error != nil {
@@ -41,6 +40,7 @@ class RegistrationVC: UIViewController {
                 }
                 else {
                     AppUtility.setIsLogin(value: true)
+                    AppUtility.dataFileCopyPast()
                     AppUtility.moveToHomeVC()
                 }
             }

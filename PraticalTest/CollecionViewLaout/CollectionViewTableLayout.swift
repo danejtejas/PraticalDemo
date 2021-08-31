@@ -100,7 +100,6 @@ class CollectionViewTableLayout: UICollectionViewLayout {
                     frame.origin.x += collectionView!.contentOffset.x
                     attributes.frame = frame
                 }
-                
                 attributes.zIndex = zIndex(forRow: row, column: col)
             }
         }
