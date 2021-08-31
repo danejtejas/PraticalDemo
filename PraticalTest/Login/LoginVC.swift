@@ -35,6 +35,7 @@ class LoginVC : UIViewController {
                 }
                 else {
                     AppUtility.setIsLogin(value: true)
+                    AppUtility.dataFileCopyPast()
                     AppUtility.moveToHomeVC()
                 }
             }

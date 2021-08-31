@@ -21,13 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         Self.scene = self
         
         if let userIsLogin = UserDefaults.standard.value(forKey: "userIsLogin") as? Bool    , userIsLogin == true  {
-            
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let homeVC = storyBoard.instantiateViewController(withIdentifier: Global.StoryborderId.homeVC) as! HomeVC
-            let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UINavigationController(rootViewController: homeVC)
-            self.window = window
-            window.makeKeyAndVisible()
+            AppUtility.moveToHomeVC()
         }
     }
 

@@ -23,7 +23,7 @@ enum Header : Int, CaseIterable {
         switch self {
         
         case .rank:
-             return "Rank"
+            return "Rank"
         case .name:
             return "Team Name"
         case .w:
@@ -66,16 +66,16 @@ class TableViewCell: UITableViewCell {
         collectionView.delegate = self
         
     }
-  
     
-
+    
+    
 }
 
 
 extension TableViewCell  : UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-            return   teams.count + 1
+        return   teams.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -86,7 +86,7 @@ extension TableViewCell  : UICollectionViewDataSource {
         let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: "DataCollectionViewCell" , for: indexPath) as! DataCollectionViewCell
         
         var data : String = ""
-         
+        
         if indexPath.section == 0 {
             data =  Header.init(rawValue: indexPath.row)?.title ?? ""
             cell.backgroundColor = #colorLiteral(red: 0.1922997534, green: 0.1840691566, blue: 0.1964299083, alpha: 1)
@@ -95,7 +95,7 @@ extension TableViewCell  : UICollectionViewDataSource {
         else
         {
             cell.lblData.textColor = #colorLiteral(red: 0.3372146487, green: 0.3372780979, blue: 0.3372106552, alpha: 1)
-            if  indexPath.row / 2 == 0  {
+            if  indexPath.section / 2 == 0  {
                 cell.backgroundColor = #colorLiteral(red: 0.9646012187, green: 0.9647662044, blue: 0.9645908475, alpha: 1)
             }
             else
@@ -132,16 +132,65 @@ extension TableViewCell  : UICollectionViewDataSource {
             case .none:
                 data = ""
             }
+            addLognPress(cell: cell)
         }
         cell.lblData.text = data.uppercased()
+        
         return cell
     }
     
     
+    private func addLognPress( cell : UICollectionViewCell){
+        let tapGesture = UILongPressGestureRecognizer(target: self, action: #selector(lognPressHandler) )
+        cell.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func lognPressHandler( guesture : UILongPressGestureRecognizer)  {
+        
+        guard  guesture.state == .began else { return  }
+        
+        let point =  guesture.location(in: collectionView)
+        let indexPath = collectionView.indexPathForItem(at: point)
+        
+        if let indexPath = indexPath  {
+            
+            let alertVC = UIAlertController(title: "Delete?", message: "Are you sure delete this recorder ?", preferredStyle: .alert)
+            
+            alertVC.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                self.teams.remove(at: indexPath.section - 1)
+                self.collectionView.reloadData()
+            }))
+            
+            alertVC.addAction(UIAlertAction(title: "No", style: .cancel, handler:nil))
+            
+            var tempVC : UIViewController?
+            if #available(iOS 13, *)
+            {
+                if let scene = UIApplication.shared.connectedScenes.first {
+                    guard let windowScene = scene as? UIWindowScene else { return  }
+                    tempVC = windowScene.windows.first?.rootViewController
+                }
+            }
+            else
+            {
+                tempVC = UIApplication.shared.keyWindow?.rootViewController
+            }
+            if var topVC = tempVC
+            {
+                while let presentedViewController = topVC.presentedViewController {
+                    topVC = presentedViewController
+                }
+                topVC.present(alertVC, animated: true, completion: nil)
+            }
+            
+        }
+        
+    }
+    
 }
 
 extension TableViewCell  : UICollectionViewDelegateFlowLayout {
- 
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let colum =  Header.init(rawValue: indexPath.row)

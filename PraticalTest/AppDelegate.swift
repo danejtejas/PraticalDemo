@@ -19,12 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         if let userIsLogin = UserDefaults.standard.value(forKey: "userIsLogin") as? Bool    , userIsLogin == true  {
-            
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let homeVC = storyBoard.instantiateViewController(withIdentifier: Global.StoryborderId.homeVC) as! HomeVC
-            
-            window?.rootViewController = UINavigationController(rootViewController: homeVC)
-            window?.makeKeyAndVisible()
+            AppUtility.moveToHomeVC()
         }
         
         

@@ -38,7 +38,14 @@ class HomeVC: UIViewController {
     }
     
     func getData()  {
-        poolData = AppUtility.getJsonData() ?? []
+        if FileManager.default.fileExists(atPath: Global.JSONDocURL.path) {
+            poolData = AppUtility.getJsonData(url:  Global.JSONDocURL) ?? []
+        }
+        else
+        {
+            AppUtility.dataFileCopyPast()
+            poolData = AppUtility.getJsonData(url:  Global.JSONDocURL) ?? []
+        }
         tableView.reloadData()
     }
     
